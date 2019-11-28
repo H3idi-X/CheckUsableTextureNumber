@@ -151,9 +151,65 @@
                 
             float4 frag(VertexOutput i, half facing : VFACE) : SV_TARGET
             {
-                half4 col = tex2D(_MainTex, i.uv0);
-                 // apply fog
-                
+                half2 uv = half2(1.0-i.uv0.x, 1.0 - i.uv0.y);
+                half4 col00 = tex2D(_MainTex, uv);
+                half4 col01 = tex2D(_Tex01, uv);
+                half4 col02 = tex2D(_Tex02, uv);
+                half4 col03 = tex2D(_Tex03, uv);
+
+                half4 col04 = tex2D(_Tex04, uv);
+                half4 col05 = tex2D(_Tex05, uv);
+                half4 col06 = tex2D(_Tex06, uv);
+                half4 col07 = tex2D(_Tex07, uv);
+
+                half4 col08 = tex2D(_Tex08, uv);
+                half4 col09 = tex2D(_Tex09, uv);
+                half4 col10 = tex2D(_Tex10, uv);
+                half4 col11 = tex2D(_Tex11, uv);
+
+                half4 col12 = tex2D(_Tex12, uv);
+                half4 col13 = tex2D(_Tex13, uv);
+                half4 col14 = tex2D(_Tex14, uv);
+                half4 col15 = tex2D(_Tex15, uv);
+                half dd = 16.0;
+                half time = _Time.x;
+                half tt = fmod(time,dd);
+                half fade00 = (1.0 + sin((tt + 0) * 100 )) * 0.5;
+                half fade01 = (1.0 + sin((tt + 1.0) * 100)) * 0.5;
+                half fade02 = (1.0 + sin((tt + 2.0) * 100)) * 0.5;
+                half fade03 = (1.0 + sin((tt + 3.0) * 100)) * 0.5;
+                half fade04 = (1.0 + sin((tt + 4.0) * 100)) * 0.5;
+                half fade05 = (1.0 + sin((tt + 6.0) * 100)) * 0.5;
+                half fade06 = (1.0 + sin((tt + 6.0) * 100)) * 0.5;
+                half fade07 = (1.0 + sin((tt + 7.0) * 100)) * 0.5;
+                half fade08 = (1.0 + sin((tt + 8.0) * 100)) * 0.5;
+                half fade09 = (1.0 + sin((tt + 9.0) * 100)) * 0.5;
+                half fade10 = (1.0 + sin((tt + 10.0) * 100)) * 0.5;
+                half fade11 = (1.0 + sin((tt + 11.0) * 100)) * 0.5;
+                half fade12 = (1.0 + sin((tt + 12.0) * 100)) * 0.5;
+                half fade13 = (1.0 + sin((tt + 13.0) * 100)) * 0.5;
+                half fade14 = (1.0 + sin((tt + 14.0) * 100)) * 0.5;
+                half fade15 = (1.0 + sin((tt + 15.0) * 100)) * 0.5;
+
+
+
+                half4 col = col00 * fade00;
+                col += col01 * fade01;
+                col += col02 * fade02;
+                col += col03 * fade03;
+                col += col04 * fade04;
+                col += col05 * fade05;
+                col += col06 * fade06;
+                col += col07 * fade07;
+                col += col08 * fade08;
+                col += col09 * fade09;
+                col += col10 * fade10;
+                col += col11 * fade11;
+                col += col12 * fade12;
+                col += col13 * fade13;
+                col += col14 * fade14;
+                col += col15 * fade15;
+
                 return col;
             }    
             ENDHLSL
