@@ -2,27 +2,26 @@
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
+  
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Tex01("Albedo (RGB)", 2D) = "white" {}
-        _Tex02("Albedo (RGB)", 2D) = "white" {}
-        _Tex03("Albedo (RGB)", 2D) = "white" {}
-        _Tex04("Albedo (RGB)", 2D) = "white" {}
-        _Tex05("Albedo (RGB)", 2D) = "white" {}
-        _Tex06("Albedo (RGB)", 2D) = "white" {}
-        _Tex07("Albedo (RGB)", 2D) = "white" {}
+        _Tex01("Albedo01 (RGB)", 2D) = "white" {}
+        _Tex02("Albedo02 (RGB)", 2D) = "white" {}
+        _Tex03("Albedo03 (RGB)", 2D) = "white" {}
+        _Tex04("Albedo04 (RGB)", 2D) = "white" {}
+        _Tex05("Albedo05 (RGB)", 2D) = "white" {}
+        _Tex06("Albedo06 (RGB)", 2D) = "white" {}
+        _Tex07("Albedo07 (RGB)", 2D) = "white" {}
 
-        _Tex08("Albedo (RGB)", 2D) = "white" {}
-        _Tex09("Albedo (RGB)", 2D) = "white" {}
-        _Tex10("Albedo (RGB)", 2D) = "white" {}
-        _Tex11("Albedo (RGB)", 2D) = "white" {}
-        _Tex12("Albedo (RGB)", 2D) = "white" {}
-        _Tex13("Albedo (RGB)", 2D) = "white" {}
-        _Tex14("Albedo (RGB)", 2D) = "white" {}
-        _Tex15("Albedo (RGB)", 2D) = "white" {}
+        _Tex08("Albedo08 (RGB)", 2D) = "white" {}
+        _Tex09("Albedo09 (RGB)", 2D) = "white" {}
+        _Tex10("Albedo10(RGB)", 2D) = "white" {}
+        _Tex11("Albedo11 (RGB)", 2D) = "white" {}
+        _Tex12("Albedo12 (RGB)", 2D) = "white" {}
+        _Tex13("Albedo13 (RGB)", 2D) = "white" {}
+        _Tex14("Albedo14 (RGB)", 2D) = "white" {}
+        _Tex15("Albedo15 (RGB)", 2D) = "white" {}
         
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
+
     }
     SubShader
     {
@@ -48,6 +47,22 @@
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl"
 
             sampler2D _MainTex;
+            sampler2D _Tex01;
+            sampler2D _Tex02;
+            sampler2D _Tex03;
+            sampler2D _Tex04;
+            sampler2D _Tex05;
+            sampler2D _Tex06;
+            sampler2D _Tex07;
+
+            sampler2D _Tex08;
+            sampler2D _Tex09;
+            sampler2D _Tex10;
+            sampler2D _Tex11;
+            sampler2D _Tex12;
+            sampler2D _Tex13;
+            sampler2D _Tex14;
+            sampler2D _Tex15;
 
             struct VertexInput {
                 float4 vertex : POSITION;
