@@ -151,7 +151,10 @@
                 
             float4 frag(VertexOutput i, half facing : VFACE) : SV_TARGET
             {
-                return float4(1.0f,0.0f,0.0f,1.0f);
+                half4 col = tex2D(_MainTex, i.uv0);
+                 // apply fog
+                
+                return col;
             }    
             ENDHLSL
         }
