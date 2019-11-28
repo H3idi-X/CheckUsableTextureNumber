@@ -175,28 +175,28 @@
                 half dd = 16.0;
                 half time = _Time.x * 10;
                 half tt = fmod(time,dd) ;
- 
-                half fade00 = (1.0 + sin(tt * pi) ) * 0.5;
-                half fade01 = (1.0 + sin((tt + 1.0) * 100)) * 0.5;
-                half fade02 = (1.0 + sin((tt + 2.0) * 100)) * 0.5;
-                half fade03 = (1.0 + sin((tt + 3.0) * 100)) * 0.5;
-                half fade04 = (1.0 + sin((tt + 4.0) * 100)) * 0.5;
-                half fade05 = (1.0 + sin((tt + 6.0) * 100)) * 0.5;
-                half fade06 = (1.0 + sin((tt + 6.0) * 100)) * 0.5;
-                half fade07 = (1.0 + sin((tt + 7.0) * 100)) * 0.5;
-                half fade08 = (1.0 + sin((tt + 8.0) * 100)) * 0.5;
-                half fade09 = (1.0 + sin((tt + 9.0) * 100)) * 0.5;
-                half fade10 = (1.0 + sin((tt + 10.0) * 100)) * 0.5;
-                half fade11 = (1.0 + sin((tt + 11.0) * 100)) * 0.5;
-                half fade12 = (1.0 + sin((tt + 12.0) * 100)) * 0.5;
-                half fade13 = (1.0 + sin((tt + 13.0) * 100)) * 0.5;
-                half fade14 = (1.0 + sin((tt + 14.0) * 100)) * 0.5;
-                half fade15 = (1.0 + sin((tt + 15.0) * 100)) * 0.5;
+
+                half fade00 = tt <= 1 ? (1.0 + sin((-0.5 + tt) * pi)) * 0.5 : 0.0f;
+                half fade01 = tt <= 2 && tt > 1.0 ? (1.0 + sin((-0.5 + tt - 1.0) * pi)) * 0.5 : 0.0f;
+                half fade02 = tt <= 3 && tt > 2.0 ? (1.0 + sin((-0.5 + tt - 2.0) * pi)) * 0.5 : 0.0f;
+                half fade03 = tt <= 4 && tt > 3.0 ? (1.0 + sin((-0.5 + tt - 3.0) * pi)) * 0.5 : 0.0f;
+                half fade04 = tt <= 5 && tt > 4.0 ? (1.0 + sin((-0.5 + tt - 4.0) * pi)) * 0.5 : 0.0f;
+                half fade05 = tt <= 6 && tt > 5.0 ? (1.0 + sin((-0.5 + tt - 5.0) * pi)) * 0.5 : 0.0f;
+                half fade06 = tt <= 7 && tt > 6.0 ? (1.0 + sin((-0.5 + tt - 6.0) * pi)) * 0.5 : 0.0f;
+                half fade07 = tt <= 8 && tt > 7.0 ? (1.0 + sin((-0.5 + tt - 7.0) * pi)) * 0.5 : 0.0f;
+                half fade08 = tt <= 9 && tt > 8.0 ? (1.0 + sin((-0.5 + tt - 8.0) * pi)) * 0.5 : 0.0f;
+                half fade09 = tt <= 10 && tt > 9.0 ? (1.0 + sin((-0.5 + tt - 9.0) * pi)) * 0.5 : 0.0f;
+                half fade10 = tt <= 11 && tt > 10.0 ? (1.0 + sin((-0.5 + tt - 10.0) * pi)) * 0.5 : 0.0f;
+                half fade11 = tt <= 12 && tt > 11.0 ? (1.0 + sin((-0.5 + tt - 11.0) * pi)) * 0.5 : 0.0f;
+                half fade12 = tt <= 13 && tt > 12.0 ? (1.0 + sin((-0.5 + tt - 12.0) * pi)) * 0.5 : 0.0f;
+                half fade13 = tt <= 14 && tt > 13.0 ? (1.0 + sin((-0.5 + tt - 13.0) * pi)) * 0.5 : 0.0f;
+                half fade14 = tt <= 15 && tt > 14.0 ? (1.0 + sin((-0.5 + tt - 14.0) * pi)) * 0.5 : 0.0f;
+                half fade15 = tt <= 16 && tt > 15.0 ? (1.0 + sin((-0.5 + tt - 15.0) * pi)) * 0.5 : 0.0f;
 
 
 
                 half4 col = col00 * fade00;
-                /*
+
                 col += col01 * fade01;
                 col += col02 * fade02;
                 col += col03 * fade03;
@@ -212,7 +212,7 @@
                 col += col13 * fade13;
                 col += col14 * fade14;
                 col += col15 * fade15;
-                */
+
                 return col;
             }    
             ENDHLSL
