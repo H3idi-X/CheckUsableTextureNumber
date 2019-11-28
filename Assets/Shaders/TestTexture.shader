@@ -171,10 +171,12 @@
                 half4 col13 = tex2D(_Tex13, uv);
                 half4 col14 = tex2D(_Tex14, uv);
                 half4 col15 = tex2D(_Tex15, uv);
+                half pi = 3.141692;
                 half dd = 16.0;
-                half time = _Time.x;
-                half tt = fmod(time,dd);
-                half fade00 = (1.0 + sin((tt + 0) * 100 )) * 0.5;
+                half time = _Time.x * 10;
+                half tt = fmod(time,dd) ;
+ 
+                half fade00 = (1.0 + sin(tt * pi) ) * 0.5;
                 half fade01 = (1.0 + sin((tt + 1.0) * 100)) * 0.5;
                 half fade02 = (1.0 + sin((tt + 2.0) * 100)) * 0.5;
                 half fade03 = (1.0 + sin((tt + 3.0) * 100)) * 0.5;
@@ -194,6 +196,7 @@
 
 
                 half4 col = col00 * fade00;
+                /*
                 col += col01 * fade01;
                 col += col02 * fade02;
                 col += col03 * fade03;
@@ -209,7 +212,7 @@
                 col += col13 * fade13;
                 col += col14 * fade14;
                 col += col15 * fade15;
-
+                */
                 return col;
             }    
             ENDHLSL
